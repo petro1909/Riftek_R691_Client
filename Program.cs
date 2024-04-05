@@ -49,14 +49,18 @@ namespace Riftek_R691_Client
         }
         private static int GetCommandNumber()
         {
-            Console.WriteLine("Ввведите номер команды от робота: ");
+            Console.Write("Ввведите номер команды от робота: ");
             string? inputCommand = Console.ReadLine();
             int commandNumber = 0;
             bool parsingResult = int.TryParse(inputCommand, out commandNumber);
 
-            if (!parsingResult || commandNumber < 1 || commandNumber > 9)
+            while (!parsingResult || commandNumber < 1 || commandNumber > 9)
             {
-                throw new Exception("Wrong command number");
+                Console.WriteLine("Неправильная команда");
+                Console.Write("Ввведите номер команды от робота: ");
+                inputCommand = Console.ReadLine();
+                parsingResult = int.TryParse(inputCommand, out commandNumber);
+
             }
             return commandNumber;
         }
