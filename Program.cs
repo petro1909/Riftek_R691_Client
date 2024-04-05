@@ -20,7 +20,7 @@ namespace Riftek_R691_Client
             { "close socket", new byte[]{} }
         };
 
-        private static IPAddress ScannerIp = IPAddress.Parse("127.0.0.1");
+        private static IPAddress ScannerIp = IPAddress.Parse("192.168.1.30");
         private static int Port = 5020;
 
         private static byte[]? GetR691Command(int commandNumber)
